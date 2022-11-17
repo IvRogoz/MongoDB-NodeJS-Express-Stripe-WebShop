@@ -1,0 +1,24 @@
+<img class="w-100" src="./images/login.svg" alt="" style="min-height: 720px;  object-fit: cover; position: absolute;" >
+<div class="h-100 d-flex align-items-center justify-content-center" style="min-height: 720px">
+    <div class="p-5" style="z-index: 0; background: #ffffffcc;">
+        <h1><%= title %></h1>
+        <form method="post" action="/users/login">
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            <div class="form-floating">
+                <input type="text" name="username" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+        
+            <div class="checkbox my-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        </form>
+    </div>
+</div>

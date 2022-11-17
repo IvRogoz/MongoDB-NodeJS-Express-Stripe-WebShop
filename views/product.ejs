@@ -1,0 +1,131 @@
+<a role="button" class="cat_pro" href="/products/<%= category %>">Back</a>
+
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url(/product_images/<%= p.id %>/<%= p.image %>);">
+    <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center pb-5">
+        <h1 class="display-3 text-white mb-3 animated slideInDown"><%= p.title %></h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Room Detail</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+    
+            <div class="col-lg-8">
+                <div id="room-carousel" class="carousel slide mb-5 wow fadeIn" data-bs-ride="carousel" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+                    <div class="carousel-inner">
+
+                        <% galleryImages.forEach((image, index)=>{ %>
+                            <% if (image != "thumbs") { %>
+                                <div class="carousel-item <% if (index==0) { %> active <% } %>">
+                                    <img class="w-100" src="/product_images/<%= p.id %>/gallery/<%= image %>" alt="Image">
+                                </div>
+                            <% } %>
+                        <% }) %>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#room-carousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#room-carousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                    <h1 class="mb-0"><%= p.title %></h1>
+                    <div class="ps-3">
+                        <small class="fa fa-star text-primary"></small>
+                        <small class="fa fa-star text-primary"></small>
+                        <small class="fa fa-star text-primary"></small>
+                        <small class="fa fa-star text-primary"></small>
+                        <small class="fa fa-star text-primary"></small>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap pb-4 m-n1">
+                    <small class="bg-light rounded py-1 px-3 m-1"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                    <small class="bg-light rounded py-1 px-3 m-1"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+                    <small class="bg-light rounded py-1 px-3 m-1"><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                    <small class="bg-light rounded py-1 px-3 m-1"><i class="fa fa-tv text-primary me-2"></i>TV</small>
+                    <small class="bg-light rounded py-1 px-3 m-1"><i class="fa fa-fan text-primary me-2"></i>AC</small>
+                    <small class="bg-light rounded py-1 px-3 m-1"><i class="fa fa-user-cog text-primary me-2"></i>Laundry</small>
+                    <small class="bg-light rounded py-1 px-3 m-1"><i class="fa fa-utensils text-primary me-2"></i>Dinner</small>
+                </div>
+                <p><%- p.desc %></p>    
+            </div>
+    
+            <div class="col-lg-4">
+                <div class="bg-light mb-5 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                    <div class="border-bottom text-center text-dark p-3 pt-4 mb-3">
+                        <span class="align-top fs-4 lh-base"><%= currency %></span>
+                        <span class="align-middle fs-1 lh-sm fw-bold"><%= parseFloat(p.price).toFixed(2) %></span>
+                        <span class="align-bottom fs-6 lh-lg">/ Person</span>
+                    </div>
+                    <div class="row g-3 p-4 pt-2">
+                        <div class="col-12">
+                            <div class="date" id="date3" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" placeholder="Check in" data-target="#date3" data-toggle="datetimepicker">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <input type="text" class="form-control" placeholder="Number of persons" > 
+                        </div>
+                        <div class="col-12">
+                            <% if (loggedIn) { %>
+                                <p><a role="button" class="btn btn-primary py-3 w-100" href="/cart/add/<%= p.slug %>">Add to cart</a></p>
+                            <% } else {%>
+                                <p><strong>You must be logged in to purchase items.</strong></p>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="bg-light p-4 mb-5 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                    <h4 class="section-title text-start mb-4">Category</h4>
+                    <a class="d-block position-relative mb-3" href="">
+                        <img class="img-fluid" src="img/cat-1.jpg" alt="">
+                        <div class="d-flex position-absolute top-0 start-0 w-100 h-100 p-3" style="background: rgba(0,0,0,.3);">
+                            <h5 class="text-white m-0 mt-auto">luxury Room</h5>
+                        </div>
+                    </a>
+                    <a class="d-block position-relative mb-3" href="">
+                        <img class="img-fluid" src="img/cat-2.jpg" alt="">
+                        <div class="d-flex position-absolute top-0 start-0 w-100 h-100 p-3" style="background: rgba(0,0,0,.3);">
+                            <h5 class="text-white m-0 mt-auto">Couple Room</h5>
+                        </div>
+                    </a>
+                    <a class="d-block position-relative" href="">
+                        <img class="img-fluid" src="img/cat-3.jpg" alt="">
+                        <div class="d-flex position-absolute top-0 start-0 w-100 h-100 p-3" style="background: rgba(0,0,0,.3);">
+                            <h5 class="text-white m-0 mt-auto">Single Room</h5>
+                        </div>
+                    </a>
+                </div>
+        
+                <div class="border p-1 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                    <div class="border p-4">
+                    <h4 class="section-title text-start mb-4">Help &amp; Support</h4>
+                    <p>Lorem sed erat elitr magna magna labore duo elitr ipsum duo. Et sed duo rebum lorem sed stet sed</p>
+                    <div class="bg-primary text-center p-3">
+                        <h4 class="text-white m-0"><%= contact %></h4>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    
+    </div>
+    
+
+
+
+
+<script src="/js/clickScript.js"></script>

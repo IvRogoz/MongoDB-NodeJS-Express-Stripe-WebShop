@@ -1,0 +1,74 @@
+<%- include ('../_layouts/adminheader') -%>
+
+
+<h2 class="page-title">Edit Info</h2>
+<a href="/admin/pages" class="btn btn-primary">Back</a>
+<br><br>
+<form method="post" action="/admin/info/edit-info/<%= id %>">
+  <div class="form-group">
+    <label for="">Company</label>
+    <input class="form-control" type="text" name="company" value="<%= (!!company)?company:'' %>" placeholder="Company">
+  </div>
+
+  <div class="form-group">
+    <label for="">E-Mail</label>
+    <input class="form-control" type="text" name="email" value="<%= (!!email)?email:'' %>" placeholder="E-Mail">
+  </div>
+
+  <div class="form-group">
+    <label for="">Contact</label>
+    <input class="form-control" type="text" name="contact" value="<%= (!!contact)?contact:'' %>" placeholder="Contact">
+  </div>
+
+  <div class="form-group">
+    <label for="">Street</label>
+    <input class="form-control" type="text" name="addressStreet" value="<%= (!!addressStreet)?addressStreet:'' %>" placeholder="Street">
+  </div>
+
+  <div class="form-group">
+    <label for="">City</label>
+    <input class="form-control" type="text" name="addressCity" value="<%= (!!addressCity)?addressCity:'' %>" placeholder="City">
+  </div>
+
+  <div class="form-group">
+    <label for="">Zip code</label>
+    <input class="form-control" type="text" name="addressZip" value="<%= (!!addressZip)?addressZip:'' %>" placeholder="Zip code">
+  </div>
+
+  <div class="form-group">
+    <label for="">Country</label>
+    <input class="form-control" type="text" name="addressCountry" value="<%= (!!addressCountry)?addressCountry:'' %>" placeholder="Country">
+  </div>
+
+  <div class="form-group">
+    <label for="">Facebook</label>
+    <input class="form-control" type="text" name="facebook" value="<%= (!!facebook)?facebook:'' %>" placeholder="Facebook">
+  </div>
+
+  <div class="form-group">
+    <label for="">Youtube</label>
+    <input class="form-control" type="text" name="youtube" value="<%= (!!youtube)?youtube:'' %>" placeholder="Youtube">
+  </div>
+
+  <div class="form-group">
+    <label for="">Linkedin</label>
+    <input class="form-control" type="text" name="linkedin" value="<%= (!!linkedin)?linkedin:'' %>" placeholder="Linkedin">
+  </div>
+
+  <div class="form-group">
+    <label for="">Twitter</label>
+    <input class="form-control" type="text" name="twitter" value="<%= (!!twitter)?twitter:'' %>" placeholder="Twitter">
+  </div>
+
+  <div class="form-group">
+    <label for="">Instagram</label>
+    <input class="form-control" type="text" name="instagram" value="<%= (!!instagram)?instagram:'' %>" placeholder="instagram">
+  </div>
+
+  <div class="form-group">
+    <label for="">Other</label>
+    <input class="form-control" type="text" name="other" value="<%= (!!other)?other:'' %>" placeholder="Other">
+  </div>
+
+  <button class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,42 @@
+{
+  "name": "colt_store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.9.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.6.0",
+    "connect-multiparty": "^2.2.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.2",
+    "fs-extra": "^10.1.0",
+    "jquery": "^3.6.1",
+    "mkdirp": "^1.0.4",
+    "mongoose": "^6.6.5",
+    "morgan": "^1.10.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "resize-img": "^1.1.2",
+    "stripe": "^10.16.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.25.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-promise": "^6.1.0"
+  }
+}

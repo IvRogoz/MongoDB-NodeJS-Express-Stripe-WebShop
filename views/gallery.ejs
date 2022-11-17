@@ -1,0 +1,15 @@
+<style>
+    .ck_image {
+        cursor: pointer;
+    }
+</style>
+<ul class="gallery">
+<% images.forEach((image)=>{ %>
+        <img class="ck_image" src="<%= image %>" alt="" onclick="myOnclickHandler('<%= image %>')" width="100px">
+<% }) %>
+<script>
+    function myOnclickHandler(pathToImage){  
+        window.opener.CKEDITOR.tools.callFunction(<%= funcNum %>, pathToImage);  
+        window.close();
+    }       
+</script>

@@ -1,0 +1,24 @@
+<%- include ('../_layouts/adminheader') -%>
+<h2 class="page-title">Services</h2>
+<a href="/admin/services/add-service" class="btn btn-primary">Add a new Service</a>
+<br><br>
+<% if (typeof services !== "undefined") { %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% services.forEach((serv)=>{ %>
+      <tr>
+        <td><%= serv.title %></td>
+        <td><a href="/admin/services/edit-service/<%= serv._id %>">Edit</a></td>
+        <td><a class="confirmDeletion" href="/admin/services/delete-service/<%= serv._id %>">Delete</a></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+<% } %>

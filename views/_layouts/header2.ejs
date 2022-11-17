@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
+  </head>
+  <body>
+    <div class="ajaxbg">
+      <div class="ajaxinner">
+          <h3>You are now being redirected to paypal...</h3>
+          <img src="/images/ajax-loader.gif" alt=""/>
+      </div>
+  </div>
+
+
+  <nav class="navbar navbar-expand-xl navbar-dark bg-dark sticky-top" aria-label="Sixth navbar example">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">COLT Store</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="text-left me-2">
+        <a role="button" class="btn btn-warning" href="/cart/checkout">My Cart (
+          <% if (typeof cart !== "undefined") { %>
+          <%= cart.length %>
+          <% } else {%>
+          0
+          <% } %>
+        )</a>
+    </div>
+
+
+      <div class="collapse navbar-collapse" id="navbarsExample06">
+        <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+
+          <% pages.forEach(function(page){ %>
+            <% if (page.slug == "home") { %>
+            <li><a class="nav-link px-2 text-secondary" href="/"><%= page.title %></a></li>
+            <% } else {%>
+            <li><a class="nav-link px-2 text-white" href="/<%= page.slug %>"><%= page.title %></a></li>
+            <% } %>
+            <% }) %>
+        </ul>
+
+        <form role="search">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        </form>
+        <div class="text-end">
+          <% if (user) { %>
+            <a role="button" class="btn btn-info" href="/users/logout">Hi, <%= user.username %> ( logout )</a>
+            <% } else {%>
+              <a class="btn btn-outline-light ms-2 me-2" role="button" href="/users/login">Log in</a>
+              <a role="button" class="btn btn-success" href="/users/register">Register</a>
+            <% } %>
+            <% if (user && user.admin == 1) { %>
+              <a role="button" class="btn btn-danger" href="/admin/pages">Admin Area</a>
+            <% }%>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid" >
+    <%- messages('messages', locals) %>
+            
+    <% if (errors) {%>
+        <% errors.forEach(function(error) { %>
+        <div class="alert alert-danger">
+            <%= error.msg %>
+        </div>
+        <% });%>
+    <% }%>
+
+
+    <div class="row">
+
+      <button class="btn btn-primary d-lg-none sticky-top" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive" style="height: 60px;">Show Categories</button>
+     
+      <div class="offcanvas-lg offcanvas-start" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel" style="max-width: 300px;">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Categories</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
+        </div>
+
+        <div class="col offcanvas-body" style="max-width: 300px; flex-direction: column">
+            <ul class="list-group" >
+              <li class="list-group-item"><h3>Categories</h3></li>
+                <li class="list-group-item"><a href="/products">All products</a></li>
+                <% categories.forEach(function(c){ %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center"><a href="/products/<%= c.slug %>"><%= c.title %></a>
+                    <span class="badge bg-info rounded-pill">Fun Time</span>
+                  </li>
+                <% }); %>
+            </ul>
+        </div>
+
+      </div>
+
+
+
+        
+        <div class="col-xs-12 col-md-8">

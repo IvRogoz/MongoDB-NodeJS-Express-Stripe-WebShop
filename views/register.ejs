@@ -1,0 +1,35 @@
+<img class="w-100" src="./images/register.svg" alt="" style="min-height: 720px;  object-fit: cover; position: absolute;" >
+<div class="h-100 d-flex align-items-center justify-content-center" style="min-height: 720px">
+    <div class="p-5" style="z-index: 0; background: #ffffffcc;">
+        <h1><%= title %></h1>
+        <form method="post" action="/users/register">
+
+            <div class="form-floating">
+                <input type="text" name="name" class="form-control" placeholder="Name">
+                <label for="floatingInput">Name</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="text" name="email" class="form-control" placeholder="Email">
+                <label for="floatingInput">Email</label>
+            </div>
+            
+            <div class="form-floating">
+                <input type="text" name="username" class="form-control" placeholder="Username">
+                <label for="floatingInput">Username</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="password" name="password" class="form-control"  placeholder="Password">
+                <label for="floatingInput">Password</label>
+            </div>
+            
+            <div class="form-floating">
+                <input type="password" name="password2" class="form-control"  placeholder="Confirm Password">
+                <label for="floatingInput">Confirm Password</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary my-4">Register</button>
+        </form>
+    </div>
+</div>
